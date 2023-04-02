@@ -11,7 +11,7 @@ public class Store extends SafeLoc {
     }
 
     @Override
-    public void onLocation(Player player) {
+    public boolean onLocation() {
         System.out.print("""
                 Welcome to store.
                 -------------------------------------------
@@ -29,26 +29,27 @@ public class Store extends SafeLoc {
             System.out.print("Make a wish: ");
             selectID = sc.nextByte();
             switch (selectID) {
-                case 1 -> buyWeapon(player, weapons[0]);
-                case 2 -> buyWeapon(player, weapons[1]);
-                case 3 -> buyWeapon(player, weapons[2]);
+                case 1 -> buyWeapon(getPlayer(), weapons[0]);
+                case 2 -> buyWeapon(getPlayer(), weapons[1]);
+                case 3 -> buyWeapon(getPlayer(), weapons[2]);
                 default -> System.out.println("Invalid selection");
             }
         } else if (selectID == 2) {
             Armors[] armors = {new LightArmor(), new MediumArmor(), new HeavyArmor()};
             for (Armors armor : armors) {
-                System.out.println(armor.getId() + " " + armor.getType() + " -  Damage: " + armor.getBlock() + "\tCost: " + armor.getCost());
+                System.out.println(armor.getId() + " - " + armor.getType() + " -  Damage: " + armor.getBlock() + "\tCost: " + armor.getCost());
             }
             System.out.print("Make a wish: ");
             selectID = sc.nextByte();
 
             switch (selectID) {
-                case 1 -> buyArmor(player, armors[0]);
-                case 2 -> buyArmor(player, armors[1]);
-                case 3 -> buyArmor(player, armors[2]);
+                case 1 -> buyArmor(getPlayer(), armors[0]);
+                case 2 -> buyArmor(getPlayer(), armors[1]);
+                case 3 -> buyArmor(getPlayer(), armors[2]);
                 default -> System.out.println("Invalid selection");
             }
         }
+        return true;
     }
 
     public void buyArmor(Player player, Armors armor) {

@@ -20,7 +20,7 @@ public class Player {
     }
 
     public void printInfo() {
-        System.out.println("\nPLAYER STATS   -->  TYPE\t: " + this.getCharType() +
+        System.out.println("\nPLAYER STATS   -->  TYPE\t\t: " + this.getCharType() +
                 "\n\t\t\t\t\tLIFE\t\t: " + this.getLife() + "/" + this.getMaxLife() +
                 "\n\t\t\t\t\tDAMAGE\t\t: " + this.getDamage() +
                 "\n\t\t\t\t\tBLOCK\t\t: " + this.getInventory().getArmor().getBlock() +

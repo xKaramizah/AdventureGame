@@ -41,5 +41,5 @@ public abstract class Location {
         this.award = award;
     }
 
-    public abstract void onLocation(Player player);
+    public abstract boolean onLocation();
 }

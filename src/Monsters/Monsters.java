@@ -9,14 +9,16 @@ public abstract class Monsters {
     private int life;
     private int maxLife;
     private int coin;
+    private int maxMonster;
 
-    public Monsters(int monsterID, String monsterType, int damage, int life, int maxLife, int coin) {
+    public Monsters(int monsterID, String monsterType, int damage, int life, int maxLife, int coin, int maxMonster) {
         this.monsterType = monsterType;
         this.monsterID = monsterID;
         this.damage = damage;
         this.life = life;
         this.maxLife = maxLife;
         this.coin = coin;
+        this.maxMonster = maxMonster;
     }
 
     public String getMonsterType() {
@@ -49,9 +51,6 @@ public abstract class Monsters {
 
     public void setLife(int life) {
         this.life = life;
-//        if (this.life < 0){
-//            this.life = 0;
-//        }
     }
 
     public int getMaxLife() {
@@ -70,14 +69,22 @@ public abstract class Monsters {
         this.coin = coin;
     }
 
+    public int getMaxMonster() {
+        return maxMonster;
+    }
+
+    public void setMaxMonster(int maxMonster) {
+        this.maxMonster = maxMonster;
+    }
+
     public void hit(Player player) {
-        if ((this.getDamage() - player.block()) > 0) {
-            int newLife = player.getLife() - this.getDamage();
+        if ((this.getDamage() - player.getInventory().getArmor().getBlock()) > 0) {
+            int newLife = player.getLife() - this.getDamage() + player.getInventory().getArmor().getBlock();
             if (newLife < 0) newLife = 0;
             {
                 player.setLife(newLife);
             }
-            System.out.println(this.getMonsterType() + " hits " + player.getPlayerName() + " for " + this.getDamage() + " damage!");
+            System.out.println(this.getMonsterType() + " hits " + player.getPlayerName() + " for " + (this.getDamage() - player.getInventory().getArmor().getBlock()) + " damage!");
         } else {
             System.out.println(this.getMonsterType() + " attacked " + player.getPlayerName() + " but it was blocked!");
         }

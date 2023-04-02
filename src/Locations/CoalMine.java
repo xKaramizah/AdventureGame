@@ -1,17 +1,10 @@
 package Locations;
 
-import Player.Player;
+import Monsters.Snake;
+import Player.*;
 
 public class CoalMine extends BattleLoc{
-    private int chance;
     public CoalMine(Player player) {
-        super(player, "Coal Mine", "Weapons");
-
-    }
-
-    @Override
-    public void onLocation(Player player) {
-        System.out.println("Welcome the old coal mine. Be careful there are some snakes! ");
-
+        super(player, "Coal Mine", "Weapons", new Snake((int) (Math.random() * 4 + 3)), true);
     }
 }

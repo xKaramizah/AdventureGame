@@ -9,13 +9,14 @@ public class SafeHouse extends SafeLoc {
     }
 
     @Override
-    public void onLocation(Player player) {
+    public boolean onLocation() {
         System.out.println("---------------------------------------------------------" + "\nYou are at " + this.getName() + " now. TAKE REST! ");
-        if (player.getLife() < player.getMaxLife()) {
-            player.setLife(player.getMaxLife());
-            System.out.println("LIFE REGENERATED: " + player.getLife() +
+        if (getPlayer().getLife() < getPlayer().getMaxLife()) {
+            getPlayer().setLife(getPlayer().getMaxLife());
+            System.out.println("LIFE REGENERATED: " + getPlayer().getLife() +
                     "\n---------------------------------------------------------");
         }
         System.out.println("---------------------------------------------------------");
+        return true;
     }
 }
