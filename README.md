@@ -4,16 +4,16 @@
 
 *************
 ### * CHARS
-![img.png](img/img.png)
+![img.png](src/img/img.png)
 
 ### * MONSTERS 
-![img_1.png](img/img_1.png)
+![img_1.png](src/img/img_1.png)
 
 ### * WEAPONS 
-![img_2.png](img/img_2.png)
+![img_2.png](src/img/img_2.png)
 
 ### * ARMORS
-![img_3.png](img/img_3.png)
+![img_3.png](src/img/img_3.png)
 
 *****************
 
